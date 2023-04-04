@@ -96,7 +96,7 @@ namespace ConversationalSpeaker
                 await _player.Play(_notificationSoundFilePath);
 
                 // Say hello on startup
-                await _semanticKernel.RunAsync("Hello!", _speechSkill["Speak"]);
+                await _semanticKernel.RunAsync("Hallo, hier spricht Samantha!", _speechSkill["Speak"]);
 
                 // Start listening
                 while (!cancellationToken.IsCancellationRequested)
@@ -124,8 +124,8 @@ namespace ConversationalSpeaker
                     // Speak the AI's reply
                     await _semanticKernel.RunAsync(reply, _speechSkill["Speak"]);
 
-                    // If the user said "Goodbye" - stop listening and wait for the wake work again.
-                    if (userSpoke.StartsWith("goodbye", StringComparison.InvariantCultureIgnoreCase))
+                    // If the user said "ciao" - stop listening and wait for the wake work again.
+                    if (userSpoke.StartsWith("ciao", StringComparison.InvariantCultureIgnoreCase))
                     {
                         break;
                     }
